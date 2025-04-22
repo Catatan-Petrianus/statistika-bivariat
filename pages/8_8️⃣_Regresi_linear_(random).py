@@ -7,7 +7,7 @@ from sklearn.linear_model import LinearRegression
 # Configure page layout
 st.set_page_config(page_title="Regresi Linear (Random)")
 st.title("Regresi Linear (Random)")
-st.sidebar.success("Pilih Materi di atas.")
+st.sidebar.success("Pilih materi di atas.")
 
 # Number of points
 n_points = st.number_input("Banyaknya data (maksimum 200 data)", min_value=10, max_value=200, value=100, step=10)
