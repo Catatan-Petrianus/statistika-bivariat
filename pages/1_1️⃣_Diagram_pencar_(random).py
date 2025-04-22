@@ -8,7 +8,7 @@ import random
 # Configure page layout
 st.set_page_config(page_title="Diagram Pencar (Random)")
 st.title("Diagram Pencar (Random)")
-st.sidebar.success("Pilih Materi di atas.")
+st.sidebar.success("Pilih materi di atas.")
 
 
 # Initialize or retrieve DataFrame from session state
