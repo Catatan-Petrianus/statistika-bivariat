@@ -14,3 +14,10 @@ st.markdown(
     - ##### Regresi Linear
     """
 )
+
+# --- Footer ---
+st.markdown("""<hr style="margin-top: 50px;">""", unsafe_allow_html=True)
+st.markdown(
+    "<p style='text-align: right; font-size: 14px; color: gray;'>Author: Petrianus Suwardi</p>",
+    unsafe_allow_html=True
+)
