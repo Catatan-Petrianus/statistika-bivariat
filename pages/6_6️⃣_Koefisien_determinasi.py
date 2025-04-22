@@ -8,7 +8,7 @@ from scipy.stats import linregress
 # Configure page layout
 st.set_page_config(page_title="Koefisien Determinasi")
 st.title("Koefisien Determinasi")
-st.sidebar.success("Pilih Materi di atas.")
+st.sidebar.success("Pilih materi di atas.")
 
 
 s_strong = random.uniform(0.5, 1)
