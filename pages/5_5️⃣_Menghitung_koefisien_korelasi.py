@@ -5,7 +5,7 @@ import numpy as np
 # Configure page layout
 st.set_page_config(page_title="Menghitung Koefisien Korelasi")
 st.title("Menghitung Koefisien Korelasi")
-st.sidebar.success("Pilih Materi di atas.")
+st.sidebar.success("Pilih materi di atas.")
 
 # Button at bottom to generate new data and rerun
 if st.button('🎲 Buatkan tabel baru'):
