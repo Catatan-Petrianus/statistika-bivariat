@@ -7,7 +7,7 @@ from sklearn.linear_model import LinearRegression
 # Configure page layout
 st.set_page_config(page_title="Koefisien Korelasi")
 st.title("Koefisien Korelasi")
-st.sidebar.success("Pilih Materi di atas.")
+st.sidebar.success("Pilih materi di atas.")
 
 m = np.random.randint(low=1, high=20)
 
