@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 # Configure page layout
 st.set_page_config(page_title="Regresi Linear (Input Data)")
 st.title("Regresi Linear (Input Data)")
-st.sidebar.success("Pilih Materi di atas.")
+st.sidebar.success("Pilih materi di atas.")
 
 
 x_name = st.text_input("Nama variabel x: ")
