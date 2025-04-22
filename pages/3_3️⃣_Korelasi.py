@@ -7,7 +7,7 @@ import pandas as pd
 # Configure page layout
 st.set_page_config(page_title="Korelasi")
 st.title("Korelasi")
-st.sidebar.success("Pilih Materi di atas.")
+st.sidebar.success("Pilih materi di atas.")
 
 # Generate sample data
 size = 100
