@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 # Configure page layout
 st.set_page_config(page_title="Diagram Pencar (Input Data)")
 st.title("Diagram Pencar (Input Data)")
-st.sidebar.success("Pilih Materi di atas.")
+st.sidebar.success("Pilih materi di atas.")
 
 st.markdown("""
     <style>
