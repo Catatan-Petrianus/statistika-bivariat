@@ -190,7 +190,7 @@ else:
         f"<td><b>{sum_y2}</b></td>"
         "</tr>"
     )
-    st.markdown("#### Langkah 4: Hitung total nilai setiap kolom")
+    st.markdown("#### Langkah 5: Hitung koefisien korelasi")
     st.markdown(f"""
     <style>
       .custom {{
