@@ -213,8 +213,3 @@ elif st.session_state.step == 5:
         st.latex(fr"\boxed{{y = {a:.3f} X - {abs(b):.3f}}}")
     else:
         st.latex(fr"\boxed{{y = {a:.3f} x}}")
-    
-
-    if st.button("🔁 Ulang dari awal"):
-        st.session_state.step = 1
-        st.rerun()
