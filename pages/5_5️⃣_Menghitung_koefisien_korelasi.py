@@ -52,7 +52,7 @@ def render_standard(df, width, highlight_col=None):
         margin-left: 0; 
       }}
       .custom th, .custom td {{
-        width: 20%; text-align: center; padding: 8px; border:1px solid #ccc; color: #000;
+        width: 20%; text-align: center; padding: 8px; border:1px solid #ccc; 
       }}
       .custom th {{ background: #f8f9fb; color: #000; font-weight: bold; }}
       {highlight_css}
@@ -136,7 +136,7 @@ elif st.session_state.step_korelasi == 5:
         margin-left: 0;
       }}
       .custom th, .custom td {{
-        width: 20%; text-align: center; padding: 8px; border:1px solid #ccc; color: #000;
+        width: 20%; text-align: center; padding: 8px; border:1px solid #ccc;
       }}
       .custom th {{ background: #f8f9fb; color: #000; font-weight: bold; }}
       /* highlight only the last row */
