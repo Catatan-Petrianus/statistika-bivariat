@@ -6,6 +6,20 @@ st.set_page_config(page_title="Mencari Persamaan Regresi Linear")
 st.title("Mencari persamaan regresi linear")
 st.sidebar.success("Pilih materi di atas.")
 
+# Check if 'df_rl' exists in session_state, if not, initialize it
+if 'df_rl' not in st.session_state:
+    st.session_state.df_rl = pd.DataFrame({
+        "x": np.random.randint(1, 11, 5),
+        "y": np.random.randint(1, 11, 5)
+    })
+
+if 'step' not in st.session_state:
+    st.session_state.step = 1
+    st.session_state.df_rl = pd.DataFrame({
+        "x": np.random.randint(1, 11, 5),
+        "y": np.random.randint(1, 11, 5)
+    })
+    
 if st.button('🎲 Buatkan tabel baru'):
     st.session_state.step = 1
     st.session_state.df_rl = pd.DataFrame({
@@ -14,21 +28,10 @@ if st.button('🎲 Buatkan tabel baru'):
     })
     st.rerun()
     
-# Check if 'df_rl' exists in session_state, if not, initialize it
-if 'df_rl' not in st.session_state:
-    st.session_state.df_rl = pd.DataFrame({
-        "x": np.random.randint(1, 11, 5),
-        "y": np.random.randint(1, 11, 5)
-    })
 
 df = st.session_state.df_rl
 
-if 'step' not in st.session_state:
-    st.session_state.step = 1
-    st.session_state.df_rl = pd.DataFrame({
-        "x": np.random.randint(1, 11, 5),
-        "y": np.random.randint(1, 11, 5)
-    })
+
 
 def render_standard(df, width, highlight_col=None):
     html = df.to_html(index=False)
