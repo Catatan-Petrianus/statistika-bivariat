@@ -171,8 +171,8 @@ elif st.session_state.step == 5:
       .custom th, .custom td {{
         width: 20%; text-align: center; padding: 8px; border:1px solid #ccc;
       }}
-      .custom th {{ background: #f8f9fb; font-weight: bold; }}
-      .custom tr:last-child td {{ background: #ffe599; }}
+      .custom th {{ background: #f8f9fb; font-weight: bold; color: #000 }}
+      .custom tr:last-child td {{ background: #ffe599; color: #000}}
     </style>
     <table class="custom">
       <tr>{headers}</tr>
