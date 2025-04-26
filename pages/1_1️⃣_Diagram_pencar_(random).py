@@ -36,7 +36,7 @@ num_points = len(df)
 def get_styled_df(current_index):
     # Highlight the row if its index matches current_index
     def highlight_row(row):
-        return ['background-color: lightyellow' if row.name == current_index else '' for _ in row]
+        return ['background-color: lightyellow; color: #000' if row.name == current_index else '' for _ in row]
 
     styled = (
         df.style
