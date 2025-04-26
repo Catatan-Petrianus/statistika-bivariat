@@ -42,7 +42,7 @@ df = st.session_state.df_r
 def render_standard(df, width, highlight_col=None):
     html = df.to_html(index=False)
     highlight_css = (
-        f".custom td:nth-child({highlight_col}){{background:#ffe599;color: #000}}"
+        f".custom td:nth-child({highlight_col}){{background:#ffe599; color: #000}}"
         if highlight_col else ""
     )
     st.markdown(f"""
@@ -52,7 +52,7 @@ def render_standard(df, width, highlight_col=None):
         margin-left: 0; 
       }}
       .custom th, .custom td {{
-        width: 20%; text-align: center; padding: 8px; border:1px solid #ccc;
+        width: 20%; text-align: center; padding: 8px; border:1px solid #ccc; color: #000;
       }}
       .custom th {{ background: #f8f9fb; color: #000; font-weight: bold; }}
       {highlight_css}
@@ -136,7 +136,7 @@ elif st.session_state.step_korelasi == 5:
         margin-left: 0;
       }}
       .custom th, .custom td {{
-        width: 20%; text-align: center; padding: 8px; border:1px solid #ccc;
+        width: 20%; text-align: center; padding: 8px; border:1px solid #ccc; color: #000;
       }}
       .custom th {{ background: #f8f9fb; color: #000; font-weight: bold; }}
       /* highlight only the last row */
