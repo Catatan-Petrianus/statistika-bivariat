@@ -16,8 +16,8 @@ if 'df_r' not in st.session_state:
 
 
 # --- Session State Init ---
-if 'step' not in st.session_state:
-    st.session_state.step = 1
+if 'step_korelasi' not in st.session_state:
+    st.session_state.step_korelasi = 1
     st.session_state.df_r = pd.DataFrame({
         "x": np.random.randint(1, 11, 5),
         "y": np.random.randint(1, 11, 5)
@@ -25,7 +25,7 @@ if 'step' not in st.session_state:
     
 # Button at bottom to generate new data and rerun
 if st.button('🎲 Buatkan tabel baru'):
-    st.session_state.step = 1
+    st.session_state.step_korelasi = 1
     st.session_state.df_r = pd.DataFrame({
     "x": np.random.randint(1, 11, 5),
     "y": np.random.randint(1, 11, 5)
@@ -65,21 +65,21 @@ def render_standard(df, width, highlight_col=None):
 # --- Main Logic ---
 df = st.session_state.df_r
 
-if st.session_state.step == 1:
+if st.session_state.step_korelasi == 1:
     # Table 1
     st.markdown("#### Tabel")
     render_standard(df, width="40%")
-    st.button("▶️ Langkah berikutnya", on_click=lambda: st.session_state.update(step=2))
-elif st.session_state.step == 2:
+    st.button("▶️ Langkah berikutnya", on_click=lambda: st.session_state.update(step_korelasi=2))
+elif st.session_state.step_korelasi == 2:
     # Table 2: + xy
     df2 = df.copy()
     df2["xy"] = df2["x"] * df2["y"]
     st.markdown("#### Langkah 1: Kalikan nilai $x$ dan nilai $y$")
     render_standard(df2, width="60%", highlight_col=3)
     if st.button("▶️ Langkah berikutnya"):
-        st.session_state.step = 3
+        st.session_state.step_korelasi = 3
 
-elif st.session_state.step == 3:
+elif st.session_state.step_korelasi == 3:
     # Table 3: + x^2
     df3 = df.copy()
     df3["xy"] = df3["x"] * df3["y"]
@@ -87,9 +87,9 @@ elif st.session_state.step == 3:
     st.markdown("#### Langkah 2: Kuadratkan nilai $x$")
     render_standard(df3, width="80%", highlight_col=4)
     if st.button("▶️ Langkah berikutnya"):
-        st.session_state.step = 4
+        st.session_state.step_korelasi = 4
 
-elif st.session_state.step == 4:
+elif st.session_state.step_korelasi == 4:
     # Table 4: + y^2
     df4 = df.copy()
     df4["xy"] = df4["x"] * df4["y"]
@@ -98,9 +98,9 @@ elif st.session_state.step == 4:
     st.markdown("#### Langkah 3: Kuadratkan nilai $y$")
     render_standard(df4, width="100%", highlight_col=5)
     if st.button("▶️ Langkah berikutnya"):
-        st.session_state.step = 5
+        st.session_state.step_korelasi = 5
 
-elif st.session_state.step == 5:
+elif st.session_state.step_korelasi == 5:
     # Table 5: add Total row, merge col1+2 in last row, highlight it
     df5 = df.copy()
     df5["xy"] = df5["x"] * df5["y"]
@@ -160,7 +160,7 @@ elif st.session_state.step == 5:
     """)
 
     if st.button("▶️ Langkah berikutnya"):
-        st.session_state.step = 6
+        st.session_state.step_korelasi = 6
 else:
     df6 = df.copy()
     n = len(df6)
