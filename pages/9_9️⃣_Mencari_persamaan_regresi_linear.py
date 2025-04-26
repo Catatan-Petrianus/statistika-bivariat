@@ -13,6 +13,15 @@ if st.button('🎲 Buatkan tabel baru'):
         "y": np.random.randint(1, 11, 5)
     })
     st.rerun()
+    
+# Check if 'df_rl' exists in session_state, if not, initialize it
+if 'df_rl' not in st.session_state:
+    st.session_state.df_rl = pd.DataFrame({
+        "x": np.random.randint(1, 11, 5),
+        "y": np.random.randint(1, 11, 5)
+    })
+
+df = st.session_state.df_rl
 
 if 'step' not in st.session_state:
     st.session_state.step = 1
