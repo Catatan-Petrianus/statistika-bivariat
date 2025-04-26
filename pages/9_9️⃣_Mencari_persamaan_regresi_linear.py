@@ -6,15 +6,11 @@ st.set_page_config(page_title="Mencari Persamaan Regresi Linear")
 st.title("Mencari persamaan regresi linear")
 st.sidebar.success("Pilih materi di atas.")
 
-# Check if 'df_rl' exists in session_state, if not, initialize it
-if 'df_rl' not in st.session_state:
-    st.session_state.df_rl = pd.DataFrame({
-        "x": np.random.randint(1, 11, 5),
-        "y": np.random.randint(1, 11, 5)
-    })
-
+# --- Always initialize session state before any logic ---
 if 'step' not in st.session_state:
     st.session_state.step = 1
+
+if 'df_rl' not in st.session_state:
     st.session_state.df_rl = pd.DataFrame({
         "x": np.random.randint(1, 11, 5),
         "y": np.random.randint(1, 11, 5)
