@@ -42,7 +42,7 @@ df = st.session_state.df_r
 def render_standard(df, width, highlight_col=None):
     html = df.to_html(index=False)
     highlight_css = (
-        f".custom td:nth-child({highlight_col}){{background:#ffe599;}}"
+        f".custom td:nth-child({highlight_col}){{background:#ffe599;color: #000}}"
         if highlight_col else ""
     )
     st.markdown(f"""
@@ -54,7 +54,7 @@ def render_standard(df, width, highlight_col=None):
       .custom th, .custom td {{
         width: 20%; text-align: center; padding: 8px; border:1px solid #ccc;
       }}
-      .custom th {{ background: #f8f9fb; font-weight: bold; }}
+      .custom th {{ background: #f8f9fb; color: #000; font-weight: bold; }}
       {highlight_css}
     </style>
     <table class="custom">
@@ -138,9 +138,9 @@ elif st.session_state.step_korelasi == 5:
       .custom th, .custom td {{
         width: 20%; text-align: center; padding: 8px; border:1px solid #ccc;
       }}
-      .custom th {{ background: #f8f9fb; font-weight: bold; }}
+      .custom th {{ background: #f8f9fb; color: #000; font-weight: bold; }}
       /* highlight only the last row */
-      .custom tr:last-child td {{ background: #ffe599; }}
+      .custom tr:last-child td {{ background: #ffe599; color: #000}}
     </style>
     <table class="custom">
       <tr>{headers}</tr>
@@ -213,9 +213,9 @@ else:
       .custom th, .custom td {{
         width: 20%; text-align: center; padding: 8px; border:1px solid #ccc;
       }}
-      .custom th {{ background: #f8f9fb; font-weight: bold; }}
+      .custom th {{ background: #f8f9fb; color: #000; font-weight: bold; }}
       /* highlight only the last row */
-      .custom tr:last-child td {{ background: #ffe599; }}
+      .custom tr:last-child td {{ background: #ffe599; color: #000}}
     </style>
     <table class="custom">
       <tr>{headers}</tr>
