@@ -7,6 +7,22 @@ st.set_page_config(page_title="Menghitung Koefisien Korelasi")
 st.title("Menghitung Koefisien Korelasi")
 st.sidebar.success("Pilih materi di atas.")
 
+# Initialize 'df_r' in session state if it does not exist
+if 'df_r' not in st.session_state:
+    st.session_state.df_r = pd.DataFrame({
+        "x": np.random.randint(1, 11, 5),
+        "y": np.random.randint(1, 11, 5)
+    })
+
+
+# --- Session State Init ---
+if 'step' not in st.session_state:
+    st.session_state.step = 1
+    st.session_state.df_r = pd.DataFrame({
+        "x": np.random.randint(1, 11, 5),
+        "y": np.random.randint(1, 11, 5)
+    })
+    
 # Button at bottom to generate new data and rerun
 if st.button('🎲 Buatkan tabel baru'):
     st.session_state.step = 1
@@ -16,22 +32,10 @@ if st.button('🎲 Buatkan tabel baru'):
     })
     st.rerun()
     
-# Initialize 'df_r' in session state if it does not exist
-if 'df_r' not in st.session_state:
-    st.session_state.df_r = pd.DataFrame({
-        "x": np.random.randint(1, 11, 5),
-        "y": np.random.randint(1, 11, 5)
-    })
 
 df = st.session_state.df_r
 
-# --- Session State Init ---
-if 'step' not in st.session_state:
-    st.session_state.step = 1
-    st.session_state.df_r = pd.DataFrame({
-        "x": np.random.randint(1, 11, 5),
-        "y": np.random.randint(1, 11, 5)
-    })
+
     
 
 # --- Helper to render Tables 1–4 ---
