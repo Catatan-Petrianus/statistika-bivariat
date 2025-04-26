@@ -17,7 +17,7 @@ if 'df_rl' not in st.session_state:
     })
     
 tabel_baru_rl_ btn = st.button('🎲 Buatkan tabel baru')    
-if stabel_baru_rl_ btn:
+if tabel_baru_rl_ btn:
     st.session_state.step = 1
     st.session_state.df_rl = pd.DataFrame({
         "x": np.random.randint(1, 11, 5),
