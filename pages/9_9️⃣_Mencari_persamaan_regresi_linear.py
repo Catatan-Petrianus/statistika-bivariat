@@ -198,8 +198,6 @@ elif st.session_state.step == 5:
     - $\Sigma y$ = {sum_y}
     - $\Sigma xy$ = {sum_xy}
     - $\Sigma x^2$ = {sum_x2}
-    - $\overline{x} = \frac{\Sigma x}{n} $ = {sum_x} / {n} = {rataan_x}
-    - $\overline{y} = \frac{\Sigma y}{n} $ = {sum_y} / {n} = {rataan_y}
     """)
 
 
