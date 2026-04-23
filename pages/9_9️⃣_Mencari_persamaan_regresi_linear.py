@@ -144,8 +144,18 @@ elif st.session_state.step == 5:
     sum_xy = df5["xy"].sum()
     sum_x2 = df5["x²"].sum()
 
-    a = ((n * sum_xy) - (sum_x * sum_y)) / (n * sum_x2 - sum_x**2)
-    b = (sum_y - a*sum_x)/n
+
+
+    rataan_x = sum_x / n
+    rataan_y = sum_y / n
+
+    S_xx = sum_x2 - (sum_x * sum_x)/n
+    S_xy = sum_xy - (sum_x * sum_y)/n
+
+    b = S_xy / S_xx
+    
+    a = rataan_y - b * rataan_x
+
 
     headers = "".join(f"<th>{c}</th>" for c in df5.columns)
     rows = ""
@@ -193,26 +203,34 @@ elif st.session_state.step == 5:
     st.markdown("#### Bentuk umum persamaan regresi linear:")
     st.latex(r'y = ax + b')
     
-    st.markdown("#### Hitung nilai a (gradien)")
-    st.latex(r"a = \frac{n\sum xy - \sum x \sum y}{n\sum x^2 - (\sum x)^2}")
-    st.latex(
-        fr"a = \frac{{{n} \times {sum_xy} - {sum_x} \times {sum_y}}}"
-        fr"{{{n} \times {sum_x2} - {sum_x}^2}}"
-    )
-    st.latex(fr"\boxed{{a = {a:.3f}}}")
-
     st.markdown("#### Hitung nilai b (perpotongan dengan sumbu $y$)")
-    st.latex(r"b = \frac{\sum y - a \sum x}{n}")
-    if a>=0:
-        st.latex(
-            fr"b = \frac{{{sum_y} - {a:.3f} \times {sum_x}}}"
-            fr"{{{n}}}"
-        )
-    else:
-        st.latex(
-            fr"b = \frac{{{sum_y} - ({a:.3f}) \times {sum_x}}}"
-            fr"{{{n}}}"
-        )
+    st.latex(r"S_{x^2} = \sum x^2 - \frac{\sum x \times \sum y}{n}")
+    st.latex(
+        fr"S_{x^2} = {sum_x2} - \frac{{{sum_x}^2}}"
+        fr"{{{n}}"
+    )
+    st.latex(fr"{S_{xx} = {S_xx:.3f}}")
+
+    st.latex(r"S_{xy} = \sum xy - \frac{\sum x \times \sum y}{n}")
+    st.latex(
+        fr"S_{xy} = {sum_xy} - \frac{{{sum_x} \times {sum_y}}}"
+        fr"{{{n}}"
+    )
+    st.latex(fr"{S_{xy} = {S_xy:.3f}}")
+    
+    st.latex(r"b = \frac{S_{xy}}{S_{xx}}")
+    st.latex(
+        fr"b = \frac{{{S_xy}}}"
+        fr"{{{S_xx}}}"
+    )
+    st.latex(fr"\boxed{{b = {b:.3f}}}")
+
+    st.markdown("#### Hitung nilai a (gradien)")
+    st.latex(r"a = \overline{Y} - b \overline{X}")
+    st.latex(
+        fr"b = {{{rataan_y} - {b:.3f} \times {rataan_x}}}"
+    )
+
     st.latex(fr"\boxed{{b = {b:.3f}}}")
 
     st.markdown("#### Jadi persamaan regresi linearnya:")
