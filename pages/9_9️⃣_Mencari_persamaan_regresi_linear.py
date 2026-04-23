@@ -203,7 +203,7 @@ elif st.session_state.step == 5:
     st.markdown("#### Bentuk umum persamaan regresi linear:")
     st.latex(r'y = ax + b')
     
-    st.markdown("#### Hitung nilai b (perpotongan dengan sumbu $y$)")
+    st.markdown("#### Hitung nilai $S_{xx}$)")
 
     st.latex(r"S_{xx} = \sum x^2 - \frac{(\sum x)^2}{n}")
     st.latex(
@@ -213,10 +213,21 @@ elif st.session_state.step == 5:
         fr"S_{{xx}} = {S_xx:.3f}"
     )
 
+    st.markdown("#### Hitung nilai $S_{xy}$)")
+    
     st.latex(r"S_{xy} = \sum xy - \frac{\sum x \sum y}{n}")
     st.latex(
         fr"S_{{xy}} = {sum_xy} - \frac{{{sum_x} \cdot {sum_y}}}{{{n}}}"
     )
     st.latex(
         fr"S_{{xy}} = {S_xy:.3f}"
+    )
+
+    st.markdown("#### Hitung nilai b (perpotongan dengan sumbu $y$)")
+    st.latex(r"b = \frac{S_{xy}}{S_{xx}}")
+    st.latex(
+        fr"b = \frac{{{S_xy}}}{{{S_xx}}}"
+    )
+    st.latex(
+        fr"\boxed{{b = {b:.3f}}}"
     )
