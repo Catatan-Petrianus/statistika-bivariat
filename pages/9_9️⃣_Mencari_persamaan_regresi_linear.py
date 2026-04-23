@@ -135,8 +135,9 @@ elif st.session_state.step == 4:
 
 elif st.session_state.step == 5:
     df5 = df.copy()
-    df5["xy"] = df5["x"] * df5["y"]
     df5["x²"] = df5["x"] ** 2
+    df5["xy"] = df5["x"] * df5["y"]
+
 
     n = len(df5)
     sum_x = df5["x"].sum()
