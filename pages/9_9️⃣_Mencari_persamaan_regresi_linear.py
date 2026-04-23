@@ -62,30 +62,30 @@ if st.session_state.step == 1:
 
 elif st.session_state.step == 2:
     df2 = df.copy()
-    df2["xy"] = df2["x"] * df2["y"]
-    st.markdown("#### Langkah 1: Kalikan nilai $x$ dan nilai $y$")
+    df2["x²"] = df2["x"] ** 2
+    st.markdown("#### Langkah 1: Kuadratkan nilai $x$")
     render_standard(df2, width="60%", highlight_col=3)
     if st.button("▶️ Langkah berikutnya"):
         st.session_state.step = 3
 
 elif st.session_state.step == 3:
     df3 = df.copy()
-    df3["xy"] = df3["x"] * df3["y"]
     df3["x²"] = df3["x"] ** 2
-    st.markdown("#### Langkah 2: Kuadratkan nilai $x$")
+    df3["xy"] = df3["x"] * df3["y"]
+    st.markdown("#### Langkah 2: Kalikan nilai $x$ dan nilai $y$")
     render_standard(df3, width="80%", highlight_col=4)
     if st.button("▶️ Langkah berikutnya"):
         st.session_state.step = 4
 
 elif st.session_state.step == 4:
     df4 = df.copy()
-    df4["xy"] = df4["x"] * df4["y"]
     df4["x²"] = df4["x"] ** 2
+    df4["xy"] = df4["x"] * df4["y"]
 
     sum_x = df4["x"].sum()
     sum_y = df4["y"].sum()
-    sum_xy = df4["xy"].sum()
-    sum_x2 = df4["x²"].sum()
+    sum_xy = df4["x²"].sum()
+    sum_x2 = df4["xy"].sum()
 
     headers = "".join(f"<th>{c}</th>" for c in df4.columns)
     rows = ""
@@ -210,8 +210,6 @@ elif st.session_state.step == 5:
         fr"- $\overline{{y}} = \frac{{\Sigma y}}{{n}} = {sum_y} / {n} = {rataan_y}$"
     )
         
-    st.markdown("#### Bentuk umum persamaan regresi linear:")
-    st.latex(r'y = ax + b')
     
     st.markdown("#### Hitung nilai $S_{xx}$")
 
@@ -232,8 +230,10 @@ elif st.session_state.step == 5:
     st.latex(
         fr"S_{{xy}} = {S_xy:.3f}"
     )
-
-    st.markdown("#### Hitung nilai b (perpotongan dengan sumbu $y$)")
+    st.markdown("#### Bentuk umum persamaan regresi linear:")
+    st.latex(r'y = a + bx')
+    
+    st.markdown("#### Hitung nilai b (gradien)")
     st.latex(r"b = \frac{S_{xy}}{S_{xx}}")
     st.latex(
         fr"b = \frac{{{S_xy:.3f}}}{{{S_xx:.3f}}}"
@@ -242,7 +242,7 @@ elif st.session_state.step == 5:
         fr"\boxed{{b = {b:.3f}}}"
     )
 
-    st.markdown("#### Hitung nilai a (intercept)")
+    st.markdown("#### Hitung nilai a (perpotongan dengan sumbu $y$)")
     st.latex(r"a = \overline{Y} - b \, \overline{X}")
     st.latex(
         fr"a = {rataan_y} - ({b:.3f}) \times {rataan_x}"
