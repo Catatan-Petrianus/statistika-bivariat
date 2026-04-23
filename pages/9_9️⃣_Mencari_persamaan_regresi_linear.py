@@ -205,9 +205,12 @@ elif st.session_state.step == 5:
     
     st.markdown("#### Hitung nilai b (perpotongan dengan sumbu $y$)")
 
-    st.latex(r"S_{x^2} = \sum x^2 - \frac{\sum x \times \sum y}{n}")
+    st.latex(r"S_{x^2} = \sum x^2 - \frac{(\sum x)^2}{n}")
+
     st.latex(
-        fr"S_{x^2} = {sum_x2} - \frac{{{sum_x}^2}}"
-        fr"{{{n}}"
+        fr"S_{{x^2}} = {sum_x2} - \frac{{({sum_x})^2}}{{{n}}}"
     )
-    st.latex(fr"{S_{xx} = {S_xx:.3f}}")
+
+    st.latex(
+        fr"S_{{xx}} = {S_xx:.3f}"
+    )
