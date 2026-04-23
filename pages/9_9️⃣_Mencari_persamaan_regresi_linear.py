@@ -204,39 +204,4 @@ elif st.session_state.step == 5:
     st.latex(r'y = ax + b')
     
     st.markdown("#### Hitung nilai b (perpotongan dengan sumbu $y$)")
-    st.latex(r"S_{x^2} = \sum x^2 - \frac{\sum x \times \sum y}{n}")
-    st.latex(
-        fr"S_{x^2} = {sum_x2} - \frac{{{sum_x}^2}}"
-        fr"{{{n}}"
-    )
-    st.latex(fr"{S_{xx} = {S_xx:.3f}}")
 
-    st.latex(r"S_{xy} = \sum xy - \frac{\sum x \times \sum y}{n}")
-    st.latex(
-        fr"S_{xy} = {sum_xy} - \frac{{{sum_x} \times {sum_y}}}"
-        fr"{{{n}}"
-    )
-    st.latex(fr"{S_{xy} = {S_xy:.3f}}")
-    
-    st.latex(r"b = \frac{S_{xy}}{S_{xx}}")
-    st.latex(
-        fr"b = \frac{{{S_xy}}}"
-        fr"{{{S_xx}}}"
-    )
-    st.latex(fr"\boxed{{b = {b:.3f}}}")
-
-    st.markdown("#### Hitung nilai a (gradien)")
-    st.latex(r"a = \overline{Y} - b \overline{X}")
-    st.latex(
-        fr"b = {{{rataan_y} - {b:.3f} \times {rataan_x}}}"
-    )
-
-    st.latex(fr"\boxed{{b = {b:.3f}}}")
-
-    st.markdown("#### Jadi persamaan regresi linearnya:")
-    if b>0:
-        st.latex(fr"\boxed{{y = {a:.3f} x + {b:.3f}}}")
-    elif b<0:
-        st.latex(fr"\boxed{{y = {a:.3f} X - {abs(b):.3f}}}")
-    else:
-        st.latex(fr"\boxed{{y = {a:.3f} x}}")
