@@ -198,7 +198,10 @@ elif st.session_state.step == 5:
     - $\Sigma y$ = {sum_y}
     - $\Sigma xy$ = {sum_xy}
     - $\Sigma x^2$ = {sum_x2}
+    - $\overline{x} = \frac{\Sigma x}{n} $ = {sum_x} / {n} = {rataan_x}
+    - $\overline{y} = \frac{\Sigma y}{n} $ = {sum_y} / {n} = {rataan_y}
     """)
+
 
     st.markdown("#### Bentuk umum persamaan regresi linear:")
     st.latex(r'y = ax + b')
@@ -226,8 +229,25 @@ elif st.session_state.step == 5:
     st.markdown("#### Hitung nilai b (perpotongan dengan sumbu $y$)")
     st.latex(r"b = \frac{S_{xy}}{S_{xx}}")
     st.latex(
-        fr"b = \frac{{{S_xy}}}{{{S_xx}}}"
+        fr"b = \frac{{{S_xy:.3f}}}{{{S_xx:.3f}}}"
     )
     st.latex(
         fr"\boxed{{b = {b:.3f}}}"
     )
+
+    st.markdown("#### Hitung nilai a (intercept)")
+    st.latex(r"a = \overline{Y} - b \, \overline{X}")
+    st.latex(
+        fr"a = {rataan_y} - {b:.3f} \cdot {rataan_x}"
+    )
+    st.latex(
+        fr"\boxed{{a = {a:.3f}}}"
+    )
+    
+    st.markdown("#### Jadi persamaan regresi linearnya:")
+    if b > 0:
+        st.latex(fr"\boxed{{y = {a:.3f} + {b:.3f}x}}")
+    elif b < 0:
+        st.latex(fr"\boxed{{y = {a:.3f} - {abs(b):.3f}x}}")
+    else:
+        st.latex(fr"\boxed{{y = {a:.3f}}}")
