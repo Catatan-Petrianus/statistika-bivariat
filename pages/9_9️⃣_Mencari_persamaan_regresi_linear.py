@@ -200,11 +200,20 @@ elif st.session_state.step == 5:
     - $\Sigma x^2$ = {sum_x2}
     """)
 
-
+    st.markdown("#### Hitung nilai rata-rata $x$")
+    st.markdown(
+        fr"- $\overline{{x}} = \frac{{\Sigma x}}{{n}} = {sum_x} / {n} = {rataan_x}$"
+    )
+    
+    st.markdown("#### Hitung nilai rata-rata $y$")
+    st.markdown(
+        fr"- $\overline{{y}} = \frac{{\Sigma y}}{{n}} = {sum_y} / {n} = {rataan_y}$"
+    )
+        
     st.markdown("#### Bentuk umum persamaan regresi linear:")
     st.latex(r'y = ax + b')
     
-    st.markdown("#### Hitung nilai $S_{xx}$)")
+    st.markdown("#### Hitung nilai $S_{xx}$")
 
     st.latex(r"S_{xx} = \sum x^2 - \frac{(\sum x)^2}{n}")
     st.latex(
@@ -214,7 +223,7 @@ elif st.session_state.step == 5:
         fr"S_{{xx}} = {S_xx:.3f}"
     )
 
-    st.markdown("#### Hitung nilai $S_{xy}$)")
+    st.markdown("#### Hitung nilai $S_{xy}$")
     
     st.latex(r"S_{xy} = \sum xy - \frac{\sum x \sum y}{n}")
     st.latex(
@@ -236,7 +245,7 @@ elif st.session_state.step == 5:
     st.markdown("#### Hitung nilai a (intercept)")
     st.latex(r"a = \overline{Y} - b \, \overline{X}")
     st.latex(
-        fr"a = {rataan_y} - {b:.3f} \cdot {rataan_x}"
+        fr"a = {rataan_y} - ({b:.3f}) \times {rataan_x}"
     )
     st.latex(
         fr"\boxed{{a = {a:.3f}}}"
