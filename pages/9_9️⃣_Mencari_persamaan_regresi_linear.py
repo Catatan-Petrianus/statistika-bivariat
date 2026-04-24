@@ -84,8 +84,8 @@ elif st.session_state.step == 4:
 
     sum_x = df4["x"].sum()
     sum_y = df4["y"].sum()
-    sum_xy = df4["x²"].sum()
-    sum_x2 = df4["xy"].sum()
+    sum_x2 = df4["x²"].sum()
+    sum_xy = df4["xy"].sum()
 
     headers = "".join(f"<th>{c}</th>" for c in df4.columns)
     rows = ""
@@ -96,8 +96,8 @@ elif st.session_state.step == 4:
         "<tr>"
         f"<td><b>{sum_x}</b></td>"
         f"<td><b>{sum_y}</b></td>"
-        f"<td><b>{sum_xy}</b></td>"
         f"<td><b>{sum_x2}</b></td>"
+        f"<td><b>{sum_xy}</b></td>"
         "</tr>"
     )
 
@@ -126,8 +126,8 @@ elif st.session_state.step == 4:
 
     - $\Sigma x$ = {sum_x}
     - $\Sigma y$ = {sum_y}
-    - $\Sigma xy$ = {sum_xy}
     - $\Sigma x^2$ = {sum_x2}
+    - $\Sigma xy$ = {sum_xy}
     """)
 
     if st.button("▶️ Langkah berikutnya"):
@@ -167,8 +167,8 @@ elif st.session_state.step == 5:
         "<tr>"
         f"<td><b>{sum_x}</b></td>"
         f"<td><b>{sum_y}</b></td>"
-        f"<td><b>{sum_xy}</b></td>"
         f"<td><b>{sum_x2}</b></td>"
+        f"<td><b>{sum_xy}</b></td>"
         "</tr>"
     )
 
