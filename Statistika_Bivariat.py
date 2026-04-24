@@ -1,8 +1,8 @@
 import streamlit as st
 
 # Configure page layout
-st.set_page_config(page_title="Regresi Linear")
-st.title("Regresi Linear")
+st.set_page_config(page_title="Statistika Bivariat")
+st.title("Statistika Bivariat")
 st.sidebar.success("Pilih materi di atas.")
 
 st.markdown(
