@@ -197,8 +197,8 @@ elif st.session_state.step == 5:
 
     - $\Sigma x$ = {sum_x}
     - $\Sigma y$ = {sum_y}
-    - $\Sigma xy$ = {sum_xy}
     - $\Sigma x^2$ = {sum_x2}
+    - $\Sigma xy$ = {sum_xy}
     """)
 
     st.markdown("#### Hitung nilai rata-rata $x$")
