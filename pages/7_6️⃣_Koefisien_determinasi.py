@@ -13,7 +13,8 @@ st.sidebar.success("Pilih materi di atas.")
 # Sidebar options
 correlation_type = st.selectbox(
     "Pilih jenis korelasi",
-    ["Positif sangat kuat", "Positif kuat", "Positif sedang", "Positif lemah", "Positif sangat lemah",
+    ["Positif sempurna",
+     "Positif sangat kuat", "Positif kuat", "Positif sedang", "Positif lemah", "Positif sangat lemah",
      "Negatif kuat", "Negatif sedang", "Negatif lemah", 
      "Tidak berkorelasi"]
 )
@@ -23,13 +24,16 @@ correlation_type = st.selectbox(
 def generate_data(correlation_type, size=100):
     while True:
         x = np.random.rand(size) * 10 
-        s_very_strong = random.uniform(0.91, 1)
+        s_perfect = random.uniform(1, 1)
+        s_very_strong = random.uniform(0.91, 0.99)
         s_strong = random.uniform(0.5, 0.9)
         s_moderate = random.uniform(2, 2.3)
         s_weak = random.uniform(3.75, 4)
         s_very_weak = random.uniform(4.1, 5)
 
-        if correlation_type == 'Positif sangat kuat':
+        if correlation_type == 'Positif sempurna':
+            y = x + np.random.normal(0, s_perfect, size)
+        elif correlation_type == 'Positif sangat kuat':
             y = x + np.random.normal(0, s_very_strong, size)
         elif correlation_type == 'Positif kuat':
             y = 2 +x + np.random.normal(0, s_strong, size)
@@ -58,7 +62,9 @@ def generate_data(correlation_type, size=100):
             r_squared = r_value ** 2
 
         # Check conditions
-        if correlation_type in ['Positif sangat kuat'] and r_squared >= 0.9:
+        if correlation_type in ['Positif sempurna'] and r_squared = 1:
+            return x, y, r_squared
+        elif correlation_type in ['Positif sangat kuat'] and 0.0.9 <= r_squared < 1:
             return x, y, r_squared
         elif correlation_type in ['Positif kuat', 'Negatif kuat'] and 0.75 <= r_squared < 0.9:
             return x, y, r_squared
