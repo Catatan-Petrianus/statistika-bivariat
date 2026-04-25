@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import math
 
 # Configure page layout
 st.set_page_config(page_title="Menghitung Koefisien Korelasi")
@@ -269,10 +270,9 @@ else:
     )
 
     st.markdown("#### Hitung koefisien korelasi")
-    st.latex(r"r = \frac{S_xy}{\sqrt{(S_xx \times S_yy}}")
+    st.latex(r"r = \frac{S_{xy}}{\sqrt{S_{xx} \times S_{yy}}}")
     st.latex(
-        fr"r = \frac{{{S_xy}}}"
-        fr"{{\sqrt{{{S_xx} \times {S_yy}}}"
+        fr"r = \frac{{{S_xy}}}{{\sqrt{{{S_xx} \times {S_yy}}}}}"
     )
     
     st.latex(fr"\boxed{{r = {koef_korelasi:.3f}}}")
