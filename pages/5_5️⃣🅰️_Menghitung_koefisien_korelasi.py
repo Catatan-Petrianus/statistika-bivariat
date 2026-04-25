@@ -246,7 +246,7 @@ else:
         fr"S_{{xx}} = {sum_x2} - \frac{{({sum_x})^2}}{{{n}}}"
     )
     st.latex(
-        fr"S_{{xx}} = {S_xx:.3f}"
+        fr"S_{{xx}} = {S_xx:.2f}"
     )
 
     st.markdown("#### Hitung nilai $S_{yy}$")
@@ -256,7 +256,7 @@ else:
         fr"S_{{yy}} = {sum_y2} - \frac{{({sum_y})^2}}{{{n}}}"
     )
     st.latex(
-        fr"S_{{yy}} = {S_yy:.3f}"
+        fr"S_{{yy}} = {S_yy:.2f}"
     )
 
     st.markdown("#### Hitung nilai $S_{xy}$")
@@ -266,13 +266,13 @@ else:
         fr"S_{{xy}} = {sum_xy} - \frac{{{sum_x} \cdot {sum_y}}}{{{n}}}"
     )
     st.latex(
-        fr"S_{{xy}} = {S_xy:.3f}"
+        fr"S_{{xy}} = {S_xy:.2f}"
     )
 
     st.markdown("#### Hitung koefisien korelasi")
     st.latex(r"r = \frac{S_{xy}}{\sqrt{S_{xx} \times S_{yy}}}")
     st.latex(
-        fr"r = \frac{{{S_xy:.3f}}}{{\sqrt{{{S_xx:.3f} \times {S_yy:.3f}}}}}"
+        fr"r = \frac{{{S_xy:.2f}}}{{\sqrt{{{S_xx:.2f} \times {S_yy:.2f}}}}}"
     )
     
     st.latex(fr"\boxed{{r = {koef_korelasi:.3f}}}")
