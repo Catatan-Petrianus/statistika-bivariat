@@ -234,6 +234,36 @@ else:
     - $\Sigma y^2$ = {df5['y²'].sum()}
     """)
 
+    st.markdown("#### Hitung nilai $S_{xx}$")
+
+    st.latex(r"S_{xx} = \sum x^2 - \frac{(\sum x)^2}{n}")
+    st.latex(
+        fr"S_{{xx}} = {sum_x2} - \frac{{({sum_x})^2}}{{{n}}}"
+    )
+    st.latex(
+        fr"S_{{xx}} = {S_xx:.3f}"
+    )
+
+    st.markdown("#### Hitung nilai $S_{yy}$")
+
+    st.latex(r"S_{yy} = \sum y^2 - \frac{(\sum y)^2}{n}")
+    st.latex(
+        fr"S_{{yy}} = {sum_y2} - \frac{{({sum_y})^2}}{{{n}}}"
+    )
+    st.latex(
+        fr"S_{{yy}} = {S_yy:.3f}"
+    )
+
+    st.markdown("#### Hitung nilai $S_{xy}$")
+    
+    st.latex(r"S_{xy} = \sum xy - \frac{\sum x \sum y}{n}")
+    st.latex(
+        fr"S_{{xy}} = {sum_xy} - \frac{{{sum_x} \cdot {sum_y}}}{{{n}}}"
+    )
+    st.latex(
+        fr"S_{{xy}} = {S_xy:.3f}"
+    )
+
     st.markdown("#### Hitung koefisien korelasi")
     st.latex(r"r = \frac{n\sum xy - \sum x \sum y}{\sqrt{(n\sum x^2 - (\sum x)^2)(n\sum y^2 - (\sum y)^2)}}")
     st.latex(
