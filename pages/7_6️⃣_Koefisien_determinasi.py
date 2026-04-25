@@ -58,7 +58,7 @@ def generate_data(correlation_type, size=100):
             r_squared = r_value ** 2
 
         # Check conditions
-        if correlation_type in ['Positif sangat kuat'] and 0.0.9 <= r_squared < 1:
+        if correlation_type in ['Positif sangat kuat'] and 0.9 <= r_squared < 1:
             return x, y, r_squared
         elif correlation_type in ['Positif kuat', 'Negatif kuat'] and 0.75 <= r_squared < 0.9:
             return x, y, r_squared
