@@ -174,7 +174,11 @@ else:
     sum_x2 = df6["x²"].sum()
     sum_y2 = df6["y²"].sum()
 
-    koef_korelasi = ((n * sum_xy) - (sum_x * sum_y)) / np.sqrt((n * sum_x2 - sum_x**2) * (n * sum_y2 - sum_y**2))
+    S_xx = sum_x2 - (sum_x * sum_x)/n
+    S_yy = sum_y2 - (sum_y * sum_y)/n
+    S_xy = sum_xy - (sum_x * sum_y)/n
+
+    koef_korelasi = S_xy / sqrt(S_xx * S_yy)
 
     # Table 5: add Total row, merge col1+2 in last row, highlight it
     df5 = df.copy()
@@ -265,10 +269,10 @@ else:
     )
 
     st.markdown("#### Hitung koefisien korelasi")
-    st.latex(r"r = \frac{n\sum xy - \sum x \sum y}{\sqrt{(n\sum x^2 - (\sum x)^2)(n\sum y^2 - (\sum y)^2)}}")
+    st.latex(r"r = \frac{S_xy}{\sqrt{(S_xx \times S_yy}}")
     st.latex(
-        fr"r = \frac{{{n} \times {sum_xy} - {sum_x} \times {sum_y}}}"
-        fr"{{\sqrt{{({n} \times {sum_x2} - {sum_x}^2)({n} \times {sum_y2} - {sum_y}^2)}}}}"
+        fr"r = \frac{{{S_xy}}}"
+        fr"{{\sqrt{{{S_xx} \times {S_yy}}}"
     )
     
     st.latex(fr"\boxed{{r = {koef_korelasi:.3f}}}")
