@@ -41,7 +41,7 @@ def generate_data(correlation_type, size=100):
             y = 8 + x + np.random.normal(0, s_weak , size)
         elif correlation_type == 'Positif sangat lemah':
             y = 10 + x + np.random.normal(0, s_very_weak , size)
-        elif correlation_type == 'Positif sempurna':
+        elif correlation_type == 'Negatif sempurna':
             y = 10 - x - random.uniform(0, 2)
         elif correlation_type == 'Negatif sangat kuat':
             y = 10 - x - np.random.normal(0, s_very_strong, size)
