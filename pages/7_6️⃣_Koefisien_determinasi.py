@@ -30,7 +30,7 @@ def generate_data(correlation_type, size=100):
         s_very_weak = random.uniform(4.1, 5)
 
         if correlation_type == 'Positif sempurna':
-            y = x + 1.5
+            y = x + random.uniform(0, 2)
         elif correlation_type == 'Positif sangat kuat':
             y = x + np.random.normal(0, s_very_strong, size)
         elif correlation_type == 'Positif kuat':
