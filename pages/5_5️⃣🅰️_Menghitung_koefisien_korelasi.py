@@ -272,7 +272,7 @@ else:
     st.markdown("#### Hitung koefisien korelasi")
     st.latex(r"r = \frac{S_{xy}}{\sqrt{S_{xx} \times S_{yy}}}")
     st.latex(
-        fr"r = \frac{{{S_xy}}}{{\sqrt{{{S_xx} \times {S_yy}}}}}"
+        fr"r = \frac{{{S_xy:.3f}}}{{\sqrt{{{S_xx:.3f} \times {S_yy:.3f}}}}}"
     )
     
     st.latex(fr"\boxed{{r = {koef_korelasi:.3f}}}")
