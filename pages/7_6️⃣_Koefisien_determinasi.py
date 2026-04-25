@@ -13,7 +13,7 @@ st.sidebar.success("Pilih materi di atas.")
 # Sidebar options
 correlation_type = st.selectbox(
     "Pilih jenis korelasi",
-    ["Positif kuat", "Positif sedang", "Positif lemah", 
+    ["Positif sangat kuat", "Positif kuat", "Positif sedang", "Positif lemah", "Positif sangat lemah",
      "Negatif kuat", "Negatif sedang", "Negatif lemah", 
      "Tidak berkorelasi"]
 )
@@ -23,16 +23,22 @@ correlation_type = st.selectbox(
 def generate_data(correlation_type, size=100):
     while True:
         x = np.random.rand(size) * 10 
-        s_strong = random.uniform(0.5, 1)
+        s_very_strong = random.uniform(0.91, 1)
+        s_strong = random.uniform(0.5, 0.9)
         s_moderate = random.uniform(2, 2.3)
         s_weak = random.uniform(3.75, 4)
+        s_very_weak = random.uniform(4.1, 5)
 
-        if correlation_type == 'Positif kuat':
+        if correlation_type == 'Positif sangat kuat':
+            y = x + np.random.normal(0, s_very_strong, size)
+        elif correlation_type == 'Positif kuat':
             y = 2 +x + np.random.normal(0, s_strong, size)
         elif correlation_type == 'Positif sedang':
             y = 4 + x + np.random.normal(0, s_moderate, size)
         elif correlation_type == 'Positif lemah':
             y = 8 + x + np.random.normal(0, s_weak , size)
+        elif correlation_type == 'Positif sangat lemah':
+            y = 10 + x + np.random.normal(0, s_very_weak , size)
         elif correlation_type == 'Negatif kuat':
             y = 12 - x - np.random.normal(0, s_strong, size)
         elif correlation_type == 'Negatif sedang':
@@ -52,11 +58,15 @@ def generate_data(correlation_type, size=100):
             r_squared = r_value ** 2
 
         # Check conditions
-        if correlation_type in ['Positif kuat', 'Negatif kuat'] and r_squared > 0.75:
+        if correlation_type in ['Positif sangat kuat'] and r_squared >= 0.9:
             return x, y, r_squared
-        elif correlation_type in ['Positif sedang', 'Negatif sedang'] and 0.5 < r_squared <= 0.75:
+        elif correlation_type in ['Positif kuat', 'Negatif kuat'] and 0.75 <= r_squared < 0.9:
             return x, y, r_squared
-        elif correlation_type in ['Positif lemah', 'Negatif lemah'] and r_squared <= 0.5:
+        elif correlation_type in ['Positif sedang', 'Negatif sedang'] and 0.5 <= r_squared < 0.75:
+            return x, y, r_squared
+        elif correlation_type in ['Positif lemah', 'Negatif lemah'] and 0.25 <= r_squared < 0.5:
+            return x, y, r_squared
+        elif correlation_type in ['Positif sangat lemah'] and r_squared < 0.25:
             return x, y, r_squared
         elif correlation_type == 'Tidak berkorelasi':
             return x, y, r_squared
