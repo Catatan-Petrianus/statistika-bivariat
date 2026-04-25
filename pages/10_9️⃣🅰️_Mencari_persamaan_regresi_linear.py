@@ -219,7 +219,7 @@ elif st.session_state.step == 5:
         fr"S_{{xx}} = {sum_x2} - \frac{{({sum_x})^2}}{{{n}}}"
     )
     st.latex(
-        fr"S_{{xx}} = {S_xx:.3f}"
+        fr"S_{{xx}} = {S_xx:.2f}"
     )
 
     st.markdown("#### Hitung nilai $S_{xy}$")
@@ -229,7 +229,7 @@ elif st.session_state.step == 5:
         fr"S_{{xy}} = {sum_xy} - \frac{{{sum_x} \cdot {sum_y}}}{{{n}}}"
     )
     st.latex(
-        fr"S_{{xy}} = {S_xy:.3f}"
+        fr"S_{{xy}} = {S_xy:.2f}"
     )
     st.markdown("#### Bentuk umum persamaan regresi linear:")
     st.latex(r'y = a + bx')
@@ -237,7 +237,7 @@ elif st.session_state.step == 5:
     st.markdown("#### Hitung nilai b (gradien)")
     st.latex(r"b = \frac{S_{xy}}{S_{xx}}")
     st.latex(
-        fr"b = \frac{{{S_xy:.3f}}}{{{S_xx:.3f}}}"
+        fr"b = \frac{{{S_xy:.2f}}}{{{S_xx:.2f}}}"
     )
     st.latex(
         fr"\boxed{{b = {b:.3f}}}"
