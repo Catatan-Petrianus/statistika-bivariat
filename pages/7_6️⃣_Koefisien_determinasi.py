@@ -14,7 +14,7 @@ st.sidebar.success("Pilih materi di atas.")
 correlation_type = st.selectbox(
     "Pilih jenis korelasi",
     ["Positif sempurna", "Positif sangat kuat", "Positif kuat", "Positif sedang", "Positif lemah", "Positif sangat lemah",
-     "Negatif kuat", "Negatif sedang", "Negatif lemah", 
+     "Negatif sempurna", "Negatif sangat kuat", "Negatif kuat", "Negatif sedang", "Negatif lemah", "Negatif sangat lemah", 
      "Tidak berkorelasi"]
 )
 
@@ -41,12 +41,18 @@ def generate_data(correlation_type, size=100):
             y = 8 + x + np.random.normal(0, s_weak , size)
         elif correlation_type == 'Positif sangat lemah':
             y = 10 + x + np.random.normal(0, s_very_weak , size)
+        elif correlation_type == 'Positif sempurna':
+            y = 10 - x - random.uniform(0, 2)
+        elif correlation_type == 'Negatif sangat kuat':
+            y = 10 - x - np.random.normal(0, s_very_strong, size)
         elif correlation_type == 'Negatif kuat':
             y = 12 - x - np.random.normal(0, s_strong, size)
         elif correlation_type == 'Negatif sedang':
             y = 14 - x - np.random.normal(0, s_moderate, size)
         elif correlation_type == 'Negatif lemah':
             y = 18 - x - np.random.normal(0, s_weak , size)
+        elif correlation_type == 'Negatif sangat lemah':
+            y = 20 - x - np.random.normal(0, s_very_weak , size)
         elif correlation_type == 'Tidak berkorelasi':
             y = np.random.rand(size)*10
         else:
@@ -57,6 +63,8 @@ def generate_data(correlation_type, size=100):
             r_squared = 0
         elif correlation_type == 'Positif sempurna':
             r_squared = 1
+        elif correlation_type == 'Negatif sempurna':
+            r_squared = 1
         else:
             slope, intercept, r_value, p_value, std_err = linregress(x, y)
             r_squared = r_value ** 2
@@ -64,7 +72,9 @@ def generate_data(correlation_type, size=100):
         # Check conditions
         if correlation_type == 'Positif sempurna':
             return x, y, r_squared
-        elif correlation_type in ['Positif sangat kuat'] and 0.9 <= r_squared < 1:
+        elif correlation_type == 'Negatif sempurna':
+            return x, y, r_squared
+        elif correlation_type in ['Positif sangat kuat', 'Negatif sangat kuat'] and 0.9 <= r_squared < 1:
             return x, y, r_squared
         elif correlation_type in ['Positif kuat', 'Negatif kuat'] and 0.75 <= r_squared < 0.9:
             return x, y, r_squared
@@ -72,7 +82,7 @@ def generate_data(correlation_type, size=100):
             return x, y, r_squared
         elif correlation_type in ['Positif lemah', 'Negatif lemah'] and 0.25 <= r_squared < 0.5:
             return x, y, r_squared
-        elif correlation_type in ['Positif sangat lemah'] and r_squared < 0.25:
+        elif correlation_type in ['Positif sangat lemah', 'Negatif sangat lemah'] and r_squared < 0.25:
             return x, y, r_squared
         elif correlation_type == 'Tidak berkorelasi':
             return x, y, r_squared
