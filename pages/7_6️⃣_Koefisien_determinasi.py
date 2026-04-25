@@ -12,7 +12,7 @@ st.sidebar.success("Pilih materi di atas.")
 
 import pandas as pd
 
-st.title("Tabel Koefisien Determinasi")
+st.header("Tabel Koefisien Determinasi")
 
 # Data tabel
 data = {
