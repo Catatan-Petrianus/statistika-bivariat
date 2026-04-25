@@ -27,40 +27,56 @@ data = {
 
 df = pd.DataFrame(data)
 
-# Warna gradasi biru pastel → merah pastel
+# Warna gradasi
 colors = [
-    "#d0e7ff",  # biru sangat muda
+    "#d0e7ff",
     "#e2f0ff",
     "#f0f8ff",
     "#fff5f5",
     "#ffe5e5",
     "#ffd6d6",
-    "#ffc2c2"   # merah pastel
+    "#ffc2c2"
 ]
 
-# Apply style
-def row_color(row):
-    idx = row.name
-    return [f"background-color: {colors[idx]}" for _ in row]
+# Build HTML table manual
+headers = "".join(f"<th>{col}</th>" for col in df.columns)
 
-styled_df = (
-    df.style
-    .apply(row_color, axis=1)
-    .set_properties(**{
-        "text-align": "center",
-        "font-weight": "500"
-    })
-    .set_table_styles([
-        {
-            "selector": "th",
-            "props": [
-                ("background-color", "#1f2a44"),  # gelap
-                ("color", "white"),              # teks terang
-                ("font-weight", "bold"),
-                ("text-align", "center")
-            ]
-        }
-    ])
-)
+rows = ""
+for i, row in df.iterrows():
+    bg = colors[i]
+    rows += "<tr>"
+    for val in row:
+        rows += f'<td style="background-color:{bg};">{val}</td>'
+    rows += "</tr>"
 
-st.dataframe(styled_df, use_container_width=True)
+html_table = f"""
+<style>
+.table-custom {{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}}
+
+.table-custom th {{
+    background-color: black;
+    color: yellow;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+}}
+
+.table-custom td {{
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+}}
+</style>
+
+<table class="table-custom">
+    <tr>{headers}</tr>
+    {rows}
+</table>
+"""
+
+st.markdown(html_table, unsafe_allow_html=True)
