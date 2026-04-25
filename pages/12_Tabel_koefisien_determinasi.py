@@ -27,4 +27,40 @@ data = {
 
 df = pd.DataFrame(data)
 
-st.table(df)
+# Warna gradasi biru pastel → merah pastel
+colors = [
+    "#d0e7ff",  # biru sangat muda
+    "#e2f0ff",
+    "#f0f8ff",
+    "#fff5f5",
+    "#ffe5e5",
+    "#ffd6d6",
+    "#ffc2c2"   # merah pastel
+]
+
+# Apply style
+def row_color(row):
+    idx = row.name
+    return [f"background-color: {colors[idx]}" for _ in row]
+
+styled_df = (
+    df.style
+    .apply(row_color, axis=1)
+    .set_properties(**{
+        "text-align": "center",
+        "font-weight": "500"
+    })
+    .set_table_styles([
+        {
+            "selector": "th",
+            "props": [
+                ("background-color", "#1f2a44"),  # gelap
+                ("color", "white"),              # teks terang
+                ("font-weight", "bold"),
+                ("text-align", "center")
+            ]
+        }
+    ])
+)
+
+st.dataframe(styled_df, use_container_width=True)
