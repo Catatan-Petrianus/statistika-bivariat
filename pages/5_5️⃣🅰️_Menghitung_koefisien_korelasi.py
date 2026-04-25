@@ -178,7 +178,7 @@ else:
     S_yy = sum_y2 - (sum_y * sum_y)/n
     S_xy = sum_xy - (sum_x * sum_y)/n
 
-    koef_korelasi = S_xy / sqrt(S_xx * S_yy)
+    koef_korelasi = S_xy / math.sqrt(S_xx * S_yy)
 
     # Table 5: add Total row, merge col1+2 in last row, highlight it
     df5 = df.copy()
