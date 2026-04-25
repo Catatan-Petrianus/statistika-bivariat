@@ -92,6 +92,7 @@ html_table = f"""
 
 st.markdown(html_table, unsafe_allow_html=True)
 
+st.write("")
 # Sidebar options
 correlation_type = st.selectbox(
     "Pilih jenis korelasi",
